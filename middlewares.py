@@ -13,4 +13,5 @@ class AccessMiddleware(BaseMiddleware):
         if int(message.from_user.id) != int(self.access_id):
             await message.answer("Access Denied")
             print("Неавторизованный пользователь! ID - %i" %int(message.from_user.id))
+            print(message)
             raise CancelHandler()

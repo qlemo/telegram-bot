@@ -1,6 +1,7 @@
 """Сервер Telegram бота, запускаемый непосредственно"""
 import logging
 import os
+import requests
 
 import aiohttp
 from aiogram import Bot, Dispatcher, executor, types
@@ -60,6 +61,8 @@ async def categories_list(message: types.Message):
 async def today_statistics(message: types.Message):
     """Отправляет сегодняшнюю статистику трат"""
     answer_message = expenses.get_today_statistics()
+    print(message)
+    requests.get('https://api.telegram.org/bot1716960236:AAHBxlfZWR5BAVB53GHJFPkPHsL3uB92If8/sendMessage?chat_id=933852545&text=asd')
     await message.answer(answer_message)
 
 
